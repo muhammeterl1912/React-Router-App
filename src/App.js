@@ -1,24 +1,23 @@
-import Home from "./pages/Home";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import LoginForm from "./components/LoginForm";
-import SearchUser from "./components/SearchUser";
+import Home from "./pages/Home";
 import Authentication from "./components/Authentication";
-import AboutInfo from "./components/AboutInfo";
+import AboutInfo from "./pages/AboutInfo";
 import { useState } from "react";
+import NavBar from "./pages/NavBar";
 
 function App() {
   const [authenticate, setAuthenticate] = useState(false);
 
   return (
     <div className="App">
-      <Home setAuthenticate={setAuthenticate} />
+      {authenticate && <NavBar setAuthenticate={setAuthenticate} />}
       <Routes>
         <Route
           path="/"
           element={<Authentication authenticate={authenticate} />}
-        >
-          {/* <Route path="/home" element={<NavBar />} /> */}
+        > <Route path="/" element={<Home setAuthenticate={setAuthenticate}/>} />
           <Route path="/about" element={<AboutInfo />} />
           <Route path="/logout" element={<LoginForm />} />
         </Route>

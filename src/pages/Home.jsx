@@ -1,10 +1,8 @@
-import NavBar from "./NavBar";
+import CardFollowers from "../components/CardFollowers"
 
-const Home = () => {
+const Home = ({setAuthenticate}) => {
   return (
-    <div><NavBar/>
-    <h1>wewfgfg</h1>
-    </div>
+    <div><CardFollowers setAuthenticate={setAuthenticate}/></div>
   )
 }
 
