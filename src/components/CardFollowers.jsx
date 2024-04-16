@@ -21,13 +21,19 @@ const CardFollowers = ({ setSpreadData }) => {
   }, []);
 
   return (
-    <div className="container ">
+    <div className="container" style={{ height: "100vh" }}>
       {loading ? (
         <img src={loadingGif} className="text-center" />
       ) : (
-        <div className="d-flex align-items-center mt-5">
+        <div
+          className="d-flex justify-content-center mt-5  row"
+          style={{ maxWidth: "1200px", maxHeight: "1800px" }}
+        >
           {data?.map((item) => (
-            <Card style={{ width: "12rem" }} className=" m-3">
+            <Card
+              style={{ width: "12rem" }}
+              className=" m-3 p-2 border border-black col-md-4"
+            >
               <Card.Img variant="top" src={item.avatar_url} />
               <Card.Body>
                 <Card.Title>{item.login}</Card.Title>

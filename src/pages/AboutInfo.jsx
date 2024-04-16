@@ -1,7 +1,7 @@
 const AboutInfo = ({ spreadData }) => {
-  console.log(spreadData)
+ 
   return (
-    <div className="container w-50 mt-5">
+    <div className="container w-50 mt-5 ">
       <h4>
         Welcome to our community! We're a group of passionate developers who
         thrive on collaboration and innovation. Our journey is fueled by our
@@ -10,7 +10,7 @@ const AboutInfo = ({ spreadData }) => {
       </h4>
       <ul className="mt-5">
         {spreadData?.map((item, i) => (
-          <li key={i} className="li-name">{item.login} : {item.html_url}</li>
+          <li key={i} className="li-name text-start ">{item.login} : {item.html_url}</li>
         ))}
       </ul>
     </div>
