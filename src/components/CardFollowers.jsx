@@ -5,10 +5,10 @@ import loadingGif from "../assets/loading.gif";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const CardFollowers = () => {
+const CardFollowers = ({ setSpreadData }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  setSpreadData(data);
   useEffect(() => {
     const fetchData = async () => {
       const rowData = await axios.get(
@@ -26,7 +26,7 @@ const CardFollowers = () => {
         <img src={loadingGif} className="text-center" />
       ) : (
         <div className="d-flex align-items-center mt-5">
-          {data?.map((item, i) => (
+          {data?.map((item) => (
             <Card style={{ width: "12rem" }} className=" m-3">
               <Card.Img variant="top" src={item.avatar_url} />
               <Card.Body>

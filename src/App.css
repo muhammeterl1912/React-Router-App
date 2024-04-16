@@ -61,3 +61,8 @@
   color: red;
   text-decoration: underline;
 }
+.li-name{
+  list-style-type: none;
+  text-transform: uppercase;
+  margin: 6px;
+}

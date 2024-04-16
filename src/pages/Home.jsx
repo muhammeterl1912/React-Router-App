@@ -1,8 +1,8 @@
 import CardFollowers from "../components/CardFollowers"
 
-const Home = ({setAuthenticate}) => {
+const Home = ({setSpreadData}) => {
   return (
-    <div><CardFollowers setAuthenticate={setAuthenticate}/></div>
+    <div><CardFollowers setSpreadData={setSpreadData} /></div>
   )
 }
 

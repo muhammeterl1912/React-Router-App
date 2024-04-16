@@ -9,6 +9,7 @@ import NavBar from "./pages/NavBar";
 
 function App() {
   const [authenticate, setAuthenticate] = useState(false);
+  const [spreadData,setSpreadData] = useState([]);
 
   return (
     <div className="App">
@@ -17,8 +18,8 @@ function App() {
         <Route
           path="/"
           element={<Authentication authenticate={authenticate} />}
-        > <Route path="/" element={<Home setAuthenticate={setAuthenticate}/>} />
-          <Route path="/about" element={<AboutInfo />} />
+        > <Route path="/" element={<Home setSpreadData={setSpreadData} />} />
+          <Route path="/about" element={<AboutInfo spreadData={spreadData}/>} />
           <Route path="/logout" element={<LoginForm />} />
         </Route>
         <Route
