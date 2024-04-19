@@ -4,10 +4,10 @@ import Navbar from "react-bootstrap/Navbar";
 import { useAuthenticateContext } from "../components/context/Authenticate";
 const NavBar = () => {
   
-  const { setAuthenticate} = useAuthenticateContext()
+  const {authenticate,setAuthenticate} = useAuthenticateContext()
   return (
     <>
-      <Navbar bg="dark" data-bs-theme="dark">
+   { authenticate ?  <Navbar bg="dark" data-bs-theme="dark">
         <Container>
           <ul className="nav-bar text-white ">
             <li className="text-white">
@@ -31,7 +31,7 @@ const NavBar = () => {
             </li>
           </ul>
         </Container>
-      </Navbar>
+      </Navbar>:""}
     </>
   );
 };
