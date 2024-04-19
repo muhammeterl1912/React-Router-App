@@ -6,28 +6,31 @@ import Authentication from "./components/Authentication";
 import AboutInfo from "./pages/AboutInfo";
 import { useState } from "react";
 import NavBar from "./pages/NavBar";
-
+import Authenticate from "./components/context/Authenticate";
+// import { useAuthenticateContext } from "./components/context/Authenticate";
 function App() {
-  const [authenticate, setAuthenticate] = useState(false);
-  const [spreadData,setSpreadData] = useState([]);
+  const [spreadData, setSpreadData] = useState([]);
+  // const { authenticate } = useAuthenticateContext();
 
   return (
-    <div className="App">
-      {authenticate && <NavBar setAuthenticate={setAuthenticate} />}
-      <Routes>
-        <Route
-          path="/"
-          element={<Authentication authenticate={authenticate} />}
-        > <Route path="/" element={<Home setSpreadData={setSpreadData} />} />
-          <Route path="/about" element={<AboutInfo spreadData={spreadData}/>} />
-          <Route path="/logout" element={<LoginForm />} />
-        </Route>
-        <Route
-          path="/login"
-          element={<LoginForm setAuthenticate={setAuthenticate} />}
-        />
-      </Routes>
-    </div>
+    <Authenticate>
+      <div className="App">
+      <NavBar/>
+        {/* {authenticate && */}
+        <Routes>
+       
+          <Route path="/" element={<Authentication />}>
+            <Route path="/" element={<Home setSpreadData={setSpreadData} />} />
+            <Route
+              path="/about"
+              element={<AboutInfo spreadData={spreadData} />}
+            />
+            <Route path="/logout" element={<LoginForm />} />
+          </Route>
+          <Route path="/login" element={<LoginForm />} />
+        </Routes>
+      </div>
+    </Authenticate>
   );
 }
 

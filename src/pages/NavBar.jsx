@@ -1,7 +1,10 @@
 import { NavLink } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
-const NavBar = ({ setAuthenticate }) => {
+import { useAuthenticateContext } from "../components/context/Authenticate";
+const NavBar = () => {
+  
+  const { setAuthenticate} = useAuthenticateContext()
   return (
     <>
       <Navbar bg="dark" data-bs-theme="dark">

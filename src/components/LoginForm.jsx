@@ -1,8 +1,9 @@
-import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { useAuthenticateContext } from "./context/Authenticate";
 
-const LoginForm = ({ setAuthenticate }) => {
+const LoginForm = () => {
+  const { setAuthenticate } = useAuthenticateContext()
   const handleSubmit = (e)=> {
     e.preventDefault()
     navigate("/")
